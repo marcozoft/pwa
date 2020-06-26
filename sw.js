@@ -2,37 +2,8 @@
 //asignar un nombre y versión al cache
 const CACHE_NAME = 'v1_cache_personal_site',
   urlsToCache = [
+    './',
     './about.html',
-
-    'css/linearicons.css',
-    'css/font-awesome.min.css',
-    'css/bootstrap.css',
-    'css/magnific-popup.css',
-    'css/magnific-popup.css',
-    'css/nice-select.css',
-    'css/animate.min.css',
-    'css/owl.carousel.css',
-    'css/main.css',
-
-    'js/vendor/jquery-2.2.4.min.js',
-    'js/popper.min.js',
-    'js/vendor/bootstrap.min.js',			
-    'https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA',			
-      'js/easing.min.js',			
-    'js/hoverIntent.js',
-    'js/superfish.min.js',	
-    'js/jquery.ajaxchimp.min.js',
-    'js/jquery.magnific-popup.min.js',	
-      'js/jquery.tabs.min.js',						
-    'js/jquery.nice-select.min.js',	
-          'js/isotope.pkgd.min.js',			
-    'js/waypoints.min.js',
-    'js/jquery.counterup.min.js',
-    'js/simple-skillbar.js',							
-    'js/owl.carousel.min.js',							
-    'js/mail-script.js',	
-    'js/main.js',
-
     './registerSW.js'       
   ];
 
@@ -84,4 +55,3 @@ self.addEventListener('fetch', e => {
       })
   )
 })
-

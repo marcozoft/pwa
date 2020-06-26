@@ -33,6 +33,12 @@
 			<link rel="stylesheet" href="css/animate.min.css">
 			<link rel="stylesheet" href="css/owl.carousel.css">				
 			<link rel="stylesheet" href="css/main.css">
+
+		<style>
+			.hide {display: none !important;}
+			.show {display: block !important;}
+		</style>
+		
 		</head>
 		<body>	
 		  <header id="header">
@@ -71,6 +77,15 @@
 		    	</div>
 		    </div>
 		  </header><!-- #header -->
+
+		  <div id="prompt" class="prompt hide bg-light border-top" style="z-index: 999999;position: fixed;width: 100%;">
+				<div class="font-weight-bold">Agregar a pantalla de inicio</div>
+				<small>Esta aplicacion puede ser instalada en su celular.</small>
+				<div class="text-right">
+					<button id="buttonCancel" type="button" class="font-weight-bold text-muted btn-sm btn btn-link">No, gracias</button>
+					<button id="buttonAdd" type="button" class="font-weight-bold text-primary btn-sm btn btn-link">AGREGAR</button>
+				</div>
+		  </div>
 
 			<!-- start banner Area -->
 			<section class="banner-area">
@@ -642,7 +657,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="js/popper.min.js"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>			
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>			
+			
   			<script src="js/easing.min.js"></script>			
 			<script src="js/hoverIntent.js"></script>
 			<script src="js/superfish.min.js"></script>	
