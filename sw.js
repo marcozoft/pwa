@@ -28,7 +28,8 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './js/simple-skillbar.js',							
     './js/owl.carousel.min.js',							
     './js/mail-script.js',	
-    './js/main.js'
+    './js/main.js',
+    './img/'
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
