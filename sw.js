@@ -3,9 +3,8 @@
 const CACHE_NAME = 'v1_cache_personal_site',
   urlsToCache = [
     './',
-    './about.html',
-    './portfolio.html',
-    './price.html'          
+    './about.html', 
+              
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
