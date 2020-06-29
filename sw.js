@@ -3,7 +3,8 @@
 const CACHE_NAME = 'v1_cache_personal_site',
   urlsToCache = [
     './',
-    './about.html', 
+    './about.html',
+    './services.html' 
               
   ];
 
