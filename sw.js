@@ -2,7 +2,8 @@
 //asignar un nombre y versión al cache
 const CACHE_NAME = 'v1_cache_personal_site',
   urlsToCache = [
-    './'              
+    './',
+    'https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700'              
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
