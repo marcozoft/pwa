@@ -6,7 +6,8 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './about.html',
     './portfolio.html',
     './price.html',
-    './css',           
+    './css/jquery-ui.css',   
+    './js/popper.min.js.map'        
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
