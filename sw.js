@@ -124,7 +124,9 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './fonts/fontawesome-webfont.ttf?v=4.7.0',
     './fonts/fontawesome-webfont.woff2?v=4.7.0',
     './fonts/fontawesome-webfont.woff?v=4.7.0',
-    './about.html'
+    './about.html',
+    './services.html',
+    './contact.html'
 
   ];
 
