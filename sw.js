@@ -129,7 +129,7 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './contact.html',
     './blog-home.html',
     './elements.html',
-    './blog-sigle.html',
+    './blog-single.html',
     './price.html'
   ];
 
