@@ -5,7 +5,8 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './',
     './about.html',
     './portfolio.html',
-    './price.html'           
+    './price.html',
+    './css',           
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
