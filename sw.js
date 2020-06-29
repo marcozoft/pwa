@@ -12,6 +12,23 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './css/animate.min.css',
     './css/owl.carousel.css',
     './css/main.css',
+    './js/vendor/jquery-2.2.4.min.js',
+    './js/popper.min.js',
+    './js/vendor/bootstrap.min.js',			
+    './js/easing.min.js',			
+    './js/hoverIntent.js',
+    './js/superfish.min.js',	
+    './js/jquery.ajaxchimp.min.js',
+    './js/jquery.magnific-popup.min.js',	
+    './js/jquery.tabs.min.js',						
+    './js/jquery.nice-select.min.js',	
+    './js/isotope.pkgd.min.js',			
+    './js/waypoints.min.js',
+    './js/jquery.counterup.min.js',
+    './js/simple-skillbar.js',							
+    './js/owl.carousel.min.js',							
+    './js/mail-script.js',	
+    './js/main.js'
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
