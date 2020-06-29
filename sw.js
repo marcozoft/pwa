@@ -126,8 +126,11 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './fonts/fontawesome-webfont.woff?v=4.7.0',
     './about.html',
     './services.html',
-    './contact.html'
-
+    './contact.html',
+    './blog-home.html',
+    './elements.html',
+    './blog-sigle.html',
+    './price.html'
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
