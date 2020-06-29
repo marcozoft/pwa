@@ -3,7 +3,15 @@
 const CACHE_NAME = 'v1_cache_personal_site',
   urlsToCache = [
     './',
-    'https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700'              
+    'https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700',
+    './css/linearicons.css',
+    './css/font-awesome.min.css',
+    './css/bootstrap.css',
+    './css/magnific-popup.css',			
+    './css/nice-select.css',
+    './css/animate.min.css',
+    './css/owl.carousel.css',
+    './css/main.css',
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
