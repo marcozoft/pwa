@@ -113,6 +113,7 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './img/icons/icon-96x96.png',
     'https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2',
     'https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2',
+    'https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2',
     './fonts/Linearicons-Free.woff',
     './fonts/Linearicons-Free.ttf',
     './fonts/Linearicons-Free.eot',
@@ -122,7 +123,9 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './fonts/Linearicons-Free.ttf?w118d',
     './fonts/fontawesome-webfont.ttf?v=4.7.0',
     './fonts/fontawesome-webfont.woff2?v=4.7.0',
-    './fonts/fontawesome-webfont.woff?v=4.7.0'
+    './fonts/fontawesome-webfont.woff?v=4.7.0',
+    './about.html'
+
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
