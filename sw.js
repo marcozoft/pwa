@@ -111,7 +111,9 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './img/icons/icon-512x512.png',
     './img/icons/icon-72x72.png',
     './img/icons/icon-96x96.png',
-    'https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2 '
+    'https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2',
+    './fonts/Linearicons-Free.woff',
+    './fonts/Linearicons-Free.ttf',
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
