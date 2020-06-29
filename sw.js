@@ -116,7 +116,11 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './fonts/Linearicons-Free.ttf',
     './fonts/Linearicons-Free.eot',
     './fonts/Linearicons-Free.svg',
-    './fonts/Linearicons-Free.woff2'
+    './fonts/Linearicons-Free.woff2',
+    './fonts/Linearicons-Free.woff?w118d',
+    './fonts/Linearicons-Free.ttf?w118d',
+    './fonts/fontawesome-webfont.ttf?v=4.7.0'
+
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
