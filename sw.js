@@ -113,8 +113,16 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './img/icons/icon-96x96.png',
     'https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2 ',
     './fonts/Linearicons-Free.woff',
-    './fonts/Linearicons-Free.ttf',
-    './fonts/fontawesome-webfont.ttf'
+    './fonts/Linearicons-Free.ttf',,
+    './fonts/Linearicons-Free.eot',
+    './fonts/Linearicons-Free.svg',
+    './fonts/Linearicons-Free.woff2',
+    './fonts/fontawesome-webfont.eot',
+    './fonts/fontawesome-webfont.svg',
+    './fonts/fontawesome-webfont.ttf',
+    './fonts/fontawesome-webfont.woff',
+    './fonts/fontawesome-webfont.woff2',
+    './fonts/FontAwesome-webfont.eot'
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
