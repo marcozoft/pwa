@@ -130,8 +130,7 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './blog-home.html',
     './elements.html',
     './blog-single.html',
-    './price.html',
-    './portfolio.html',
+    './price.html',    
     './index.html'
   ];
 
@@ -180,6 +179,10 @@ self.addEventListener('fetch', e => {
         }
         //recuperar de la petición a la url
         return fetch(e.request)
+      }).catch(() => {
+        if(e.request.url.indexOf('.html') > -1){
+          return caches.match('fallback.html');
+        }
       })
   )
 })
