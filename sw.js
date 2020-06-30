@@ -131,7 +131,8 @@ const CACHE_NAME = 'v1_cache_personal_site',
     './elements.html',
     './blog-single.html',
     './price.html',    
-    './index.html'
+    './index.html',
+    './fallback.html'
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
