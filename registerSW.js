@@ -15,12 +15,31 @@ const statusPrompt = {
 	}
 }
 
+//Request user permission to notification
+function askPermission() {
+	return new Promise(function(resolve, reject) {
+	  const permissionResult = Notification.requestPermission(function(result) {
+		resolve(result);
+	  });
+  
+	  if (permissionResult) {
+		permissionResult.then(resolve, reject);
+	  }
+	})
+	.then(function(permissionResult) {
+	  if (permissionResult !== 'granted') {
+		throw new Error('We weren\'t granted permission.');
+	  }
+	});
+  }
 
 window.onload = (e) => { 
 
 	if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('./sw.js')
-			.then(reg => console.log('Registro de SW exitoso', reg))
+			.then(reg => {
+				console.log('Registro de SW exitoso', reg);
+				askPermission()})
 			.catch(err => console.warn('Error al tratar de registrar el sw', err))
 	}
 
@@ -69,22 +88,6 @@ window.onload = (e) => {
 		});
 	});
 
-	//Request user permission to notification
-	function askPermission() {
-		return new Promise(function(resolve, reject) {
-		  const permissionResult = Notification.requestPermission(function(result) {
-			resolve(result);
-		  });
-	  
-		  if (permissionResult) {
-			permissionResult.then(resolve, reject);
-		  }
-		})
-		.then(function(permissionResult) {
-		  if (permissionResult !== 'granted') {
-			throw new Error('We weren\'t granted permission.');
-		  }
-		});
-	  }
+	
 
 }
