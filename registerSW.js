@@ -191,8 +191,8 @@ buttonPush.addEventListener('click', () =>
             method: 'POST',
             body: JSON.stringify({
                 endpoint: subscription.endpoint,
-                key: key ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh')))) : null,
-                token: token ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))) : null
+                p256dh: key ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh')))) : null,
+                auth: token ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))) : null
             })
         }).then(function(response) {return response.text();
         }).then(function(response) { console.log(response);});

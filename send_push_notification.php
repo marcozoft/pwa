@@ -5,28 +5,12 @@ use Minishlink\WebPush\Subscription;
 // here I'll get the subscription endpoint in the POST parameters
 // but in reality, you'll get this information in your database
 // because you already stored it (cf. push_subscription.php)
-//$subscription = json_decode(file_get_contents('php://input'), true);
+$subscriber = json_decode(file_get_contents('php://input'), true);
 
-try{
-    $db = new PDO('sqlite:DB.sqlite');
-}
-catch(PDOException $e){
-    exit($e->getMessage());
-}
-$myQuery = "SELECT * FROM subscribers LIMIT 0, 1";
-try{
-     $result = $db->query($myQuery)->fetch(PDO::FETCH_ASSOC);
-    if($result['id'] == NULL || $result['id'] == ""){
-         ?><script language="javascript" >//console.log('data : <?php //echo ''; ?>');</script><?php exit;
-     }else{
-         $subscriber = $result;
-     }
-}
-catch(PDOException $e){
-     exit($e->getMessage());
-}
 
-//var_dump($result);
+
+
+var_dump($subscriber);
 
 $auth = array(
     'VAPID' => array(
