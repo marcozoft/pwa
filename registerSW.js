@@ -120,17 +120,20 @@ window.onload = (e) => {
 		console.warn('Push messaging is not supported');		
 	}
 
-	askPermission()
-		.then(reg =>console.log('Permiso de notificacion concedido', reg))
-		.catch(err => console.warn('Permiso de notificacion denegado', err))
+	// askPermission()
+	// 	.then(reg =>console.log('Permiso de notificacion concedido', reg))
+	// 	.catch(err => console.warn('Permiso de notificacion denegado', err))
 
 
 
 
 	const prompt = document.querySelector('#prompt');
+	const promptNotification = document.querySelector('#promptNotification');
 	const buttonAdd = document.querySelector('#buttonAdd');
 	const buttonCancel = document.querySelector('#buttonCancel');
-	
+	const buttonAccept = document.querySelector('#buttonAccept');
+	const buttonDenied = document.querySelector('#buttonDenied');
+
 	let deferredPrompt;
 	window.addEventListener('beforeinstallprompt', (e) => {
 		// Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -143,6 +146,23 @@ window.onload = (e) => {
 		promptToggle(prompt, 'show', 'hide');
 		}
 	});
+
+	// Add event click function for Cancel button
+	buttonAccept.addEventListener('click', (e) => {
+		// Change status prompt
+		promptToggle(promptNotification, 'hide', 'show');
+		// Set status prompt to dismissed
+		statusPrompt.set('dismissed');
+	});
+
+	// Add event click function for Cancel button
+	buttonDenied.addEventListener('click', (e) => {
+		// Change status prompt
+		promptToggle(promptNotification, 'hide', 'show');
+		// Set status prompt to dismissed
+		statusPrompt.set('dismissed');
+	});
+
 
 	// Add event click function for Cancel button
 	buttonCancel.addEventListener('click', (e) => {
