@@ -145,6 +145,10 @@ window.onload = (e) => {
 		// Change status prompt
 		promptToggle(prompt, 'show', 'hide');
 		}
+		if(!statusPrompt.get()) {
+			// Change status prompt
+			promptToggle(promptNotification, 'show', 'hide');
+		}
 	});
 
 	// Add event click function for Cancel button
