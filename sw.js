@@ -2,9 +2,10 @@
 //asignar un nombre y versión al cache
 const CACHE_NAME = 'v1_cache_personal_site',
   urlsToCache = [
-    './',
+    './index.html',
     './about.html',
     './portfolio.html',
+    './test.php',
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
