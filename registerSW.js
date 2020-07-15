@@ -120,9 +120,9 @@ window.onload = (e) => {
 		console.warn('Push messaging is not supported');		
 	}
 
-	// askPermission()
-	// 	.then(reg =>console.log('Permiso de notificacion concedido', reg))
-	// 	.catch(err => console.warn('Permiso de notificacion denegado', err))
+	 askPermission()
+	 	.then(reg =>console.log('Permiso de notificacion concedido', reg))
+	 	.catch(err => console.warn('Permiso de notificacion denegado', err))
 
 
 
