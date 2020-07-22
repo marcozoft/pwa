@@ -108,7 +108,22 @@ function askPermission() {
 	  }
 	});
   }
+// // Declare general function to change status prompt
+const promptToggle = (element, toAdd, toRemove) => {
+	element.classList.add(toAdd);
+	element.classList.remove(toRemove);
+};  
 
+// Declare general function to get or set status into storage
+const statusPrompt = {
+	get: () => {
+		return localStorage.getItem('statusPrompt') || null;
+	},
+	set: (status) => {
+		localStorage.setItem('statusPrompt', status);
+		return;
+	}
+}
   window.onload = (e) => { 
 
 	if ('serviceWorker' in navigator && 'PushManager' in window) {
