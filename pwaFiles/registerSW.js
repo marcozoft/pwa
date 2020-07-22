@@ -1,5 +1,5 @@
 const publickey = 'BFzWsQGVxUb3GADJj2C5XNa2hoqPZWKVaz3TptLePhYcOaDqBmIDg7sKP-BV9aJiTnI9MN5y_4jatNgbxOV6jfM';
-const urlToSendSubscriptionOnServer= "http://api.victorhugovallejos.com.ar/";
+const urlToSendSubscriptionOnServer= "https://api.victorhugovallejos.com.ar/";
 
 function urlB64ToUint8Array(base64String) {
 	const padding = '='.repeat((4 - base64String.length % 4) % 4);
