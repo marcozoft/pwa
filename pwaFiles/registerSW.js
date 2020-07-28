@@ -39,7 +39,6 @@ function subscribeUser() {
   
 	  fetch(urlToSendSubscriptionOnServer, {
 			method: 'post',
-			mode: 'cors',
             headers: new Headers({
             'Content-Type': 'application/json'
             }),
@@ -57,31 +56,6 @@ function subscribeUser() {
               throw new Error('Bad response from server.');
             }
 		  });
-		
-		  
-
-
-
-
-		  fetch(urlToSendSubscriptionOnServer, {
-			method: 'POST',
-        	headers: {
-            	'Content-Type': 'application/x-www-form-urlencoded'
-        	},
-        	body: 'a=1&b=2'
-        }).then(function(response) {
-			console.log("response server: ",response)
-            if (!response.ok) {
-              throw new Error('Bad status code from server.');
-            }
-        
-            return response.json();
-          })
-          .then(function(responseData) {
-            if (!(responseData.data && responseData.data.success)) {
-              throw new Error('Bad response from server.');
-            }
-          });  
 			  
 	} 
   }
