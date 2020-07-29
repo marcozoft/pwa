@@ -6,8 +6,8 @@
     "background_color": "#3f51b5",
     "orientation":"portrait",
     "display": "standalone",
-    "scope": "./",
-    "start_url": "./?utm_source=web_app_manifest",
+    "scope": "./pwaFiles/",
+    "start_url": "./pwaFiles/?utm_source=web_app_manifest",
     "lang":"",
     "icons": [
       {

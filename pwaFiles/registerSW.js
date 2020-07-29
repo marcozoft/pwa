@@ -1,5 +1,5 @@
 const publickey = 'BFzWsQGVxUb3GADJj2C5XNa2hoqPZWKVaz3TptLePhYcOaDqBmIDg7sKP-BV9aJiTnI9MN5y_4jatNgbxOV6jfM';
-const urlToSendSubscriptionOnServer= "http://api.victorhugovallejos.com.ar/";
+const urlToSendSubscriptionOnServer= "http://api.victorhugovallejos.com.ar/api/pwa/endpoint/save";
 
 function urlB64ToUint8Array(base64String) {
 	const padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -52,60 +52,44 @@ function subscribeUser() {
             return response.json();
           })
           .then(function(responseData) {
-            if (!(responseData.data && responseData.data.success)) {
+			  console.log(responseData);
+            if (!(responseData.success)) {
               throw new Error('Bad response from server.');
             }
 		  });
-			  
 	} 
   }
 
 //Request user permission to notification
 function askPermission() {
-	return new Promise(function(resolve, reject) {
+	if(Notification.permission!='granted'){
 		
-	  const permissionResult = Notification.requestPermission(function(result) {
-		resolve(result);
-	  });
-  
-	  if (permissionResult) {
-		permissionResult.then(resolve, reject);
-	  }
-	})
-	.then(function(permissionResult) {
-	  if (permissionResult !== 'granted') {
-		throw new Error('We weren\'t granted permission.');
-	  }else{
-		  if(permissionResult === 'granted'){
-			subscribeUser();
-		  }
-	  }
-	});
-  }
-// // Declare general function to change status prompt
-const promptToggle = (element, toAdd, toRemove) => {
-	element.classList.add(toAdd);
-	element.classList.remove(toRemove);
-};  
-
-// Declare general function to get or set status into storage
-const statusPrompt = {
-	get: () => {
-		return localStorage.getItem('statusPrompt') || null;
-	},
-	set: (status) => {
-		localStorage.setItem('statusPrompt', status);
-		return;
+		Notification.requestPermission().
+		then((permission)=>{ 
+			if(permission === 'granted'){
+				subscribeUser();
+			  
+			}else{
+				throw new Error('We weren\'t granted permission.');
+			}
+		});
 	}
-}
-  window.onload = (e) => { 
+	else{
 
+	}
+  }
+
+
+
+  window.onload = (e) => { 
+		
 	if ('serviceWorker' in navigator && 'PushManager' in window) {
 		console.log('Service Worker and Push is supported');
+		
 		navigator.serviceWorker.register('./pwaFiles/service-worker.js')
 			.then(registration =>{	
 				console.log('Service Worker is registered', registration);
-				swRegistration = registration;			
+				swRegistration = registration;				
 				askPermission();		
 			})
 			.catch(function(error) {
@@ -116,12 +100,6 @@ const statusPrompt = {
 		console.warn('Push messaging is not supported');		
 	} 
 	
-	const prompt = document.querySelector('#prompt');
-	const promptNotification = document.querySelector('#promptNotification');
-	const buttonAdd = document.querySelector('#buttonAdd');
-	const buttonCancel = document.querySelector('#buttonCancel');
-	const buttonAccept = document.querySelector('#buttonAccept');
-	const buttonDenied = document.querySelector('#buttonDenied');
 
 	let deferredPrompt;
 	window.addEventListener('beforeinstallprompt', (e) => {

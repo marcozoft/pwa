@@ -32,3 +32,27 @@ document.body.firstChild.before(divButtonAddApplication);
 document.body.firstChild.before(divButtonNotification);
 
 
+// // Declare general function to change status prompt
+const promptToggle = (element, toAdd, toRemove) => {
+	element.classList.add(toAdd);
+	element.classList.remove(toRemove);
+};  
+
+// Declare general function to get or set status into storage
+const statusPrompt = {
+	get: () => {
+		return localStorage.getItem('statusPrompt') || null;
+	},
+	set: (status) => {
+		localStorage.setItem('statusPrompt', status);
+		return;
+	}
+}
+
+const prompt = document.querySelector('#prompt');
+const promptNotification = document.querySelector('#promptNotification');
+const buttonAdd = document.querySelector('#buttonAdd');
+const buttonCancel = document.querySelector('#buttonCancel');
+const buttonAccept = document.querySelector('#buttonAccept');
+const buttonDenied = document.querySelector('#buttonDenied');
+

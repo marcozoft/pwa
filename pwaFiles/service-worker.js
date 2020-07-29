@@ -2,7 +2,7 @@
 //asignar un nombre y versión al cache
 const CACHE_NAME = 'v1_cache',
   urlsToCache = [
-    
+    './registerSW.js'
   ];
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
