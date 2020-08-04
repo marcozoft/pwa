@@ -1,96 +1,13 @@
-const publickey = 'BFzWsQGVxUb3GADJj2C5XNa2hoqPZWKVaz3TptLePhYcOaDqBmIDg7sKP-BV9aJiTnI9MN5y_4jatNgbxOV6jfM';
-const urlToSendSubscriptionOnServer= "http://api.victorhugovallejos.com.ar/api/pwa/endpoint/save";
-
-function urlB64ToUint8Array(base64String) {
-	const padding = '='.repeat((4 - base64String.length % 4) % 4);
-	const base64 = (base64String + padding)
-	  .replace(/\-/g, '+')
-	  .replace(/_/g, '/');
-  
-	const rawData = window.atob(base64);
-	const outputArray = new Uint8Array(rawData.length);
-  
-	for (let i = 0; i < rawData.length; ++i) {
-	  outputArray[i] = rawData.charCodeAt(i);
-	}
-	return outputArray;
-}
-
-function subscribeUser() {
-	const applicationServerKey = urlB64ToUint8Array(publickey);
-	swRegistration.pushManager.subscribe({
-	  userVisibleOnly: true,
-	  applicationServerKey: applicationServerKey
-	})
-	.then(function(subscription) {
-	  console.log('User is subscribed.');
-	  console.log('subscription for updateSubscriptionsONServer',JSON.stringify(subscription));
-	  updateSubscriptionOnServer(subscription);
-	})
-	.catch(function(err) {
-	  console.log('Failed to subscribe the user: ', err);
-	  
-	});
-  }
-
-  function updateSubscriptionOnServer(subscription) {
-	// TODO: Send subscription to application server
-	if (subscription) {	  
-  
-	  fetch(urlToSendSubscriptionOnServer, {
-			method: 'post',
-            headers: new Headers({
-            'Content-Type': 'application/json'
-            }),
-			body: JSON.stringify(subscription)
-        }).then(function(response) {
-			console.log("response server: ",response)
-            if (!response.ok) {
-              throw new Error('Bad status code from server.');
-            }
-        
-            return response.json();
-          })
-          .then(function(responseData) {
-			  console.log(responseData);
-            if (!(responseData.success)) {
-              throw new Error('Bad response from server.');
-            }
-		  });
-	} 
-  }
-
-//Request user permission to notification
-function askPermission() {
-	if(Notification.permission!='granted'){
-		
-		Notification.requestPermission().
-		then((permission)=>{ 
-			if(permission === 'granted'){
-				subscribeUser();
-			  
-			}else{
-				throw new Error('We weren\'t granted permission.');
-			}
-		});
-	}
-	else{
-
-	}
-  }
-
-
-
   window.onload = (e) => { 
 		
 	if ('serviceWorker' in navigator && 'PushManager' in window) {
 		console.log('Service Worker and Push is supported');
 		
-		navigator.serviceWorker.register('./pwaFiles/service-worker.js')
+		navigator.serviceWorker.register('./service-worker.js')
 			.then(registration =>{	
 				console.log('Service Worker is registered', registration);
-				swRegistration = registration;				
-				askPermission();		
+				//swRegistration = registration;				
+				//askPermission();		
 			})
 			.catch(function(error) {
 				console.error('Service Worker Error', error);
@@ -108,40 +25,18 @@ function askPermission() {
 		// Stash the event so it can be triggered later.
 		deferredPrompt = e;
 		// Show prompt modal if user previously not set to dismissed or accepted
-		if(!statusPrompt.get()) {
+		if(!statusPromptButtonInstall.get()) {
 		// Change status prompt
 		promptToggle(prompt, 'show', 'hide');
 		}
-		if(!statusPrompt.get()) {
-			// Change status prompt
-			promptToggle(promptNotification, 'show', 'hide');
-		}
-
 	});
-
-	// Add event click function for Cancel button
-	buttonAccept.addEventListener('click', (e) => {
-		// Change status prompt
-		promptToggle(promptNotification, 'hide', 'show');
-		// Set status prompt to dismissed
-		statusPrompt.set('dismissed');
-	});
-
-	// Add event click function for Cancel button
-	buttonDenied.addEventListener('click', (e) => {
-		// Change status prompt
-		promptToggle(promptNotification, 'hide', 'show');
-		// Set status prompt to dismissed
-		statusPrompt.set('dismissed');
-	});
-
 
 	// Add event click function for Cancel button
 	buttonCancel.addEventListener('click', (e) => {
 		// Change status prompt
 		promptToggle(prompt, 'hide', 'show');
 		// Set status prompt to dismissed
-		statusPrompt.set('dismissed');
+		statusPromptButtonInstall.set('dismissed');
 	});
 
 	// Add event click function for Add button
@@ -154,7 +49,7 @@ function askPermission() {
 		deferredPrompt.userChoice
 		.then((choiceResult) => {
 			if (choiceResult.outcome === 'accepted') {
-			statusPrompt.set('accepted');
+				statusPromptButtonInstall.set('accepted');
 			console.log('User accepted the A2HS prompt');
 			} else {
 			statusPrompt.set('dismissed');
